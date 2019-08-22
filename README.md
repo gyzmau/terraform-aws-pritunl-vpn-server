@@ -3,8 +3,6 @@ This module setups a VPN server for a VPC to connect to instances.
 
 *Before you start to use the module you have to make sure you've created resources below*
 
-* healthchecks.io account and cron entry for monitoring the backup script
-
 After provisioning, don't forget to run commands below:
 
 * **Pritunl setup**
@@ -22,7 +20,6 @@ After provisioning, don't forget to run commands below:
 * **internal_cidrs:** List of CIDRs that will be whitelisted to access the VPN server internally.
 * **tags:** Map of AWS Tag key and values
 * **resource_name_prefix:** All the resources will be prefixed with the value of this variable
-* **healthchecks_io_key:** Health check key for healthchecks.io
 * **s3_bucket_name:** Optional bucket name for Pritunl backups
 
 # Outputs
@@ -47,7 +44,6 @@ module "app_pritunl" {
   ami_id               = "ami-403e2524"
   instance_type        = "t2.nano"
   resource_name_prefix = "opsgang-pritunl"
-  healthchecks_io_key  = "NNNNNNNN-NNNN-NNNN-NNNN-NNNNNNNNNNN"
   s3_bucket_name       = "i-want-to-override-generated-bucket-name"
 
   whitelist = [
